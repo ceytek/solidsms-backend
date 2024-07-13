@@ -16,7 +16,7 @@ export class UserResolver {
     const user = { username, password: hashedPassword, name, customer_id };
 
     const [result] = await pool.query(
-      'INSERT INTO user (username, password, name, customer_id) VALUES (?, ?, ?, ?)', 
+      'INSERT INTO users (username, password, name, customer_id) VALUES (?, ?, ?, ?)', 
       [user.username, user.password, user.name, user.customer_id]
     );
 
@@ -29,7 +29,7 @@ export class UserResolver {
     @Arg("username") username: string,
     @Arg("password") password: string
   ): Promise<User | null> {
-    const [rows] = await pool.query('SELECT * FROM user WHERE username = ?', [username]);
+    const [rows] = await pool.query('SELECT * FROM users WHERE username = ?', [username]);
     const user = (rows as User[])[0];
     
     if (!user) {

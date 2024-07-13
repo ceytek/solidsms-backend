@@ -6,7 +6,7 @@ import pool from '../../db'; // Adjust the path as necessary
 export class CustomerResolver {
   @Query(() => [Customer])
   async getCustomers(): Promise<Customer[]> {
-    const [rows] = await pool.query('SELECT * FROM customer');
+    const [rows] = await pool.query('SELECT * FROM customers');
     return rows as Customer[];
   }
 
@@ -18,7 +18,7 @@ export class CustomerResolver {
     const customer = { name, isCorporate };
 
     const [result] = await pool.query(
-      'INSERT INTO customer (name, isCorporate) VALUES (?, ?)', 
+      'INSERT INTO customers (name, isCorporate) VALUES (?, ?)', 
       [customer.name, customer.isCorporate]
     );
 

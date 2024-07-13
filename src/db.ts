@@ -4,7 +4,7 @@ const pool = createPool({
   host: 'localhost',
   user: 'root',
   password: 'Cey@tek85',
-  database: 'test',
+  database: 'solidsms',
 });
 
 export default pool;
