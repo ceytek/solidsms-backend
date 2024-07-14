@@ -4,10 +4,10 @@ import express from 'express';
 import { buildSchema } from 'type-graphql';
 import { CustomerResolver } from './grapql/resolvers/CustomerResolver';
 import { UserResolver } from './grapql/resolvers/UserResolver';
-
+import { RoleResolver } from './grapql/resolvers/RoleResolver';
 async function bootstrap() {
   const schema = await buildSchema({
-    resolvers: [CustomerResolver, UserResolver],
+    resolvers: [CustomerResolver, UserResolver,RoleResolver],
     validate: false,
   });
 

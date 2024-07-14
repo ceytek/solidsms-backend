@@ -17,11 +17,15 @@ export class User {
   @Field(() => ID)
   customer_id: number;
 
-  constructor(id: number, username: string, password: string, name: string, customer_id: number) {
+  @Field(() => ID)
+  role_id: number;
+
+  constructor(id: number, username: string, password: string, name: string, customer_id: number, role_id: number) {
     this.id = id;
     this.username = username;
     this.password = password;
     this.name = name;
     this.customer_id = customer_id;
+    this.role_id = role_id;
   }
 }
